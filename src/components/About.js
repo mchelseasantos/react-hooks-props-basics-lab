@@ -1,12 +1,20 @@
 import React from "react";
 
-function About() {
+function About(props) {
+  console.log(props)
+  let bio;
+  if ("bio" in props && props.bio.length > 0 ){ 
+    bio=<p>{props.bio}</p>
+  }
   return (
     <div id="about">
       <h2>About Me</h2>
-      <p>Put the bio in here</p>
+      {bio}
       <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
-      {/* add your <Links /> component here */}
+      <h3>Links</h3>
+      <a href={props.links["github"]}>{props.links["github"]}</a>
+      <a href={props.links["linkedin"]}>{props.links["linkedin"]}</a>
+      
     </div>
   );
 }
